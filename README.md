@@ -1,7 +1,7 @@
-# Gerenciador de Tarefas API
+# Gerenciador de Tarefas
 
 ## Descrição
-O **Gerenciador de Tarefas API** é uma aplicação backend que oferece operações CRUD para gerenciar tarefas. Ela permite que usuários criem, leiam, atualizem e excluam tarefas, além de marcar tarefas como concluídas ou pendentes. Este projeto é ideal para desenvolver e demonstrar habilidades em backend, como design de APIs RESTful, estruturação de projetos e manipulação de banco de dados.
+O **Gerenciador de Tarefas** é uma aplicação backend que oferece operações CRUD para gerenciar tarefas. Ela permite que usuários criem, leiam, atualizem e excluam tarefas, além de marcar tarefas como concluídas ou pendentes. Este projeto é ideal para desenvolver e demonstrar habilidades em backend, como design de APIs RESTful, estruturação de projetos e manipulação de banco de dados.
 
 ## Funcionalidades Principais
 - **Autenticação e Autorização:**
