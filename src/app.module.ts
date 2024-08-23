@@ -10,10 +10,10 @@ import { User } from './user/user.entity';
   imports: [UserModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'fastdb.cloud',
+      host: '',
       port: 5001,
       username: 'postgres',
-      password: 'c22bea28a39df53d1822',
+      password: '',
       database: 'test',
       entities: [User],
       synchronize: true,
