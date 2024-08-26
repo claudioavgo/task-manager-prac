@@ -1,8 +1,7 @@
-import { Body, Controller, Get, Post, Param, Patch, Delete, NotFoundException } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param, Patch, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { AuthService } from 'src/auth/auth.service';
 
 @Controller('users')
 export class UserController {
@@ -13,13 +12,14 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Post()
+  createUser(@Body() user: CreateUserDto) {
+    return this.userService.create(user)
+  }
+
   @Get(':id')
   async getUser(@Param('id') id: string) {
-    const user = await this.userService.findOne(id);
-    if (!user) {
-      throw new NotFoundException(`User with ID ${id} not found`);
-    }
-    return user;
+    return await this.userService.findOne(id);
   }
 
   @Patch(':id')
