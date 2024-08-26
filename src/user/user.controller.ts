@@ -1,20 +1,16 @@
 import { Body, Controller, Get, Post, Param, Patch, Delete, NotFoundException } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
+import { CreateUserDto } from './dtos/create-user.dto';
+import { AuthService } from 'src/auth/auth.service';
 
-@Controller('auth/')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) { }
 
   @Get()
   getUsers() {
     return this.userService.findAll();
-  }
-
-  @Post()
-  createUser(@Body() user: User) {
-    const userCreated = this.userService.create(user)
-
   }
 
   @Get(':id')

@@ -10,8 +10,8 @@ export class AuthController {
     @Post('signup')
     createUser(@Body() user: CreateUserDto) {
         const userCreated = this.userService.create(user)
-        if (userCreated) {
 
+        if (userCreated) {
             const token = this.authService.signIn(user.name, user.password)
 
             return {

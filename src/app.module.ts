@@ -5,13 +5,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { User } from './user/user.entity';
 import { TaskController } from './task/task.controller';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
+    UserModule,
+    AuthModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    UserModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -25,9 +29,7 @@ import { TaskController } from './task/task.controller';
         entities: [User],
         synchronize: false,
       }),
-    })],
-  controllers: [TaskController],
-  providers: [],
+    })]
 })
 export class AppModule {
   constructor(private dataSource: DataSource) { }
