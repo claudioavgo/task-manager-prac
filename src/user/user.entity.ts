@@ -1,16 +1,22 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
+
+    @Column({ length: 100 })
+    name: string;
+
+    @Column({ unique: true })
+    email: string;
 
     @Column()
-    firstName: string;
+    password: string;
 
-    @Column()
-    lastName: string;
+    @CreateDateColumn({ type: 'timestamp' })
+    created_at: Date;
 
-    @Column({ default: true })
-    isActive: boolean;
+    @UpdateDateColumn({ type: 'timestamp' })
+    updated_at: Date;
 }

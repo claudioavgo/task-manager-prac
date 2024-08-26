@@ -27,16 +27,6 @@ O **Gerenciador de Tarefas** é uma aplicação backend que oferece operações 
 - **created_at** (datetime) - Data de criação do usuário.
 - **updated_at** (datetime) - Data de última atualização do usuário.
 
-### Tarefa (Task)
-- **id** (UUID) - Identificador único da tarefa.
-- **title** (string) - Título da tarefa.
-- **description** (string) - Descrição detalhada da tarefa.
-- **status** (boolean) - Status da tarefa (concluída: true, pendente: false).
-- **due_date** (datetime) - Data limite para conclusão da tarefa.
-- **user_id** (UUID) - Identificador do usuário que criou a tarefa.
-- **created_at** (datetime) - Data de criação da tarefa.
-- **updated_at** (datetime) - Data de última atualização da tarefa.
-
 ## Endpoints da API
 
 ### 1. Autenticação
