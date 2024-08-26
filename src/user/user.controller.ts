@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Param, Patch, Delete, NotFoundException } 
 import { UserService } from './user.service';
 import { User } from './user.entity';
 
-@Controller('users')
+@Controller('auth/')
 export class UserController {
   constructor(private readonly userService: UserService) { }
 
@@ -13,11 +13,12 @@ export class UserController {
 
   @Post()
   createUser(@Body() user: User) {
-    return this.userService.create(user);
+    const userCreated = this.userService.create(user)
+
   }
 
   @Get(':id')
-  async getUser(@Param('id') id: number) {
+  async getUser(@Param('id') id: string) {
     const user = await this.userService.findOne(id);
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
@@ -26,12 +27,12 @@ export class UserController {
   }
 
   @Patch(':id')
-  updateUser(@Param('id') id: number, @Body() user: Partial<User>) {
+  updateUser(@Param('id') id: string, @Body() user: Partial<User>) {
     return this.userService.update(id, user);
   }
 
   @Delete(':id')
-  removeUser(@Param('id') id: number) {
+  removeUser(@Param('id') id: string) {
     return this.userService.remove(id);
   }
 }
